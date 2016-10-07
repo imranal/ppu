@@ -1,0 +1,102 @@
+% !TEX spellcheck = en
+\documentclass[12pt,twoside,onecolumn]{article}
+\usepackage{a4}
+\usepackage[margin=0.95in]{geometry}
+\usepackage[latin1]{inputenc}  % Bruk latin-1 tegnsett
+\usepackage[UKenglish]{babel} 
+\usepackage{url}
+\usepackage{subfiles} % Handeling multiple chapters on seperate files.
+\usepackage{amsmath} % math package
+\usepackage{relsize} % to use larger math symbols
+\usepackage{hyperref}  % for making links click-able
+\usepackage{amssymb} % for using blackboard letters (e.g R for real numbers)
+\usepackage{tocbibind} % for adding the reference section in table of contents
+\usepackage{graphicx}  % for displaying pictures
+% \usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{subfig} % for displaying multiple pictures with subfloats and float.
+\usepackage{amsthm} % for creating definitions and theorems
+% \usepackage{fancyhdr} % for adding fancy heading in each page
+% \pagestyle{fancy} % adds heading in each page
+\usepackage{algorithm} % for displaying algorithms
+\usepackage{fixltx2e} % for text in sub script
+\usepackage{perpage} % for resetting footnote counter at each page
+\usepackage{tikz} % for drawing
+\usetikzlibrary{matrix,positioning}
+\usepackage{adjustbox} % for resizing tables
+
+\MakePerPage{footnote} %the perpage package command
+
+\newtheorem*{mytheo}{Teorem}
+\newtheorem*{mydef}{Definisjon} % used later when creating definitions which are unnumbered
+
+
+\makeatletter
+\def\@documentnocite#1{\@bsphack
+  \@for\@citeb:=#1\do{%
+    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+    \if@filesw\immediate\write\@auxout{\string\citation{\@citeb}}\fi
+    \@ifundefined{b@\@citeb}{\G@refundefinedtrue
+      \@latex@warning{Citation `\@citeb' undefined}}{}}%
+  \@esphack}
+\AtBeginDocument{\let\nocite\@documentnocite}
+\makeatother
+
+% change proof environment by having proof written as Example in bold
+\newenvironment{example}[1][\proofname]{%
+  \proof[\normalfont \textbf{Example}]%
+}{\endproof}
+
+\begin{document}
+\pagenumbering{roman} 
+% Front page with uio logo - remember to fix the logo
+\subfile{frontpage}
+\newpage\null\newpage
+
+% Table of content, list of tables, list of figueres, and preface.
+\subfile{abstract}
+\newpage\null
+\tableofcontents{}
+\listoffigures{}
+\listoftables{}
+
+% Start first Part : Theory
+\newpage\null
+\pagenumbering{arabic} 
+\part{Teori}
+
+\newpage
+% Introduction
+\subfile{chapter1}
+
+\newpage\null
+% Tensor Fields
+\subfile{chapter2}
+
+% Start next Part : Method and Results
+\newpage\null
+\part{Metode \& Resultater}
+
+\newpage
+% Visualization : state-of-art
+\subfile{chapter3}
+
+\newpage\null
+% Implementation
+\subfile{chapter4}
+
+\newpage\null
+% Results & Interpretation
+\subfile{chapter5}
+
+\newpage\null
+% Conclusion
+\subfile{conclusion}
+% Appendix
+\newpage\null
+\subfile{append}
+% Biblography
+\newpage\null
+\subfile{biblo}
+\newpage\null\thispagestyle{empty}\newpage
+\end{document}
