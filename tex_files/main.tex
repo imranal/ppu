@@ -2,6 +2,11 @@
 \documentclass[12pt,twoside,onecolumn,norsk]{article}
 \usepackage{a4}
 \usepackage[margin=0.95in]{geometry}
+
+
+%\geometry{showframe}
+
+
 \usepackage[utf8]{inputenc}
 
 \usepackage[norsk]{babel} 
@@ -29,6 +34,10 @@
 \usepackage{adjustbox} % for resizing tables
 
 \MakePerPage{footnote} %the perpage package command
+
+\addto\captionsenglish{%
+  \renewcommand{\figurename}{Figur}
+}
 
 \newtheorem*{mytheo}{Teorem}
 \newtheorem*{mydef}{Definisjon} % used later when creating definitions which are unnumbered
@@ -58,29 +67,14 @@
 \pagenumbering{arabic} 
 % Table of content, list of tables, list of figueres, and preface.
 \subfile{intro}
-\newpage\null
 
 % Introduction
 \subfile{chapter1}
 
-\newpage\null
-% Tensor Fields
+
 \subfile{chapter2}
 
-\newpage
-% Visualization : state-of-art
-\subfile{chapter3}
 
-\newpage\null
-% Implementation
-\subfile{chapter4}
-
-\newpage\null
-% Results & Interpretation
-\subfile{chapter5}
-
-\newpage\null
-% Conclusion
 \subfile{conclusion}
 % Appendix
 \newpage\null
