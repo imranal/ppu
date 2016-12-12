@@ -1,60 +1,32 @@
-% !TEX spellcheck = en
 \documentclass[12pt,twoside,onecolumn,norsk]{article}
+
 \usepackage{a4}
 \usepackage[margin=0.9in]{geometry}
-
-
-%\geometry{showframe}
 \usepackage{pdfpages}
-
-\usepackage{csquotes}
 \usepackage{apacite}
 \usepackage{jneurosci}
-
-
 \usepackage[utf8]{inputenc}
-
 \usepackage[norsk]{babel} 
 \usepackage{url}
 \usepackage{subfiles} % Handeling multiple chapters on seperate files.
 \usepackage{amsmath} % math package
 \usepackage{relsize} % to use larger math symbols
-
 \usepackage{amssymb} % for using blackboard letters (e.g R for real numbers)
 \usepackage{tocbibind} % for adding the reference section in table of contents
 \usepackage{graphicx}  % for displaying pictures
-
-
-% \usepackage{caption}
-% \usepackage{subcaption}
-\usepackage{subfig} % for displaying multiple pictures with subfloats and float.
-\usepackage{amsthm} % for creating definitions and theorems
-% \usepackage{fancyhdr} % for adding fancy heading in each page
-% \pagestyle{fancy} % adds heading in each page
 \usepackage{algorithm} % for displaying algorithms
 \usepackage{fixltx2e} % for text in sub script
 \usepackage{perpage} % for resetting footnote counter at each page
-\usepackage{tikz} % for drawing
-\usetikzlibrary{matrix,positioning}
 \usepackage{adjustbox} % for resizing tables
-
 \usepackage{csquotes}
-
 \usepackage{epigraph}
-
 \usepackage{ragged2e}
-
-%\usepackage{hyperref}  % for making links click-able
 
 \MakePerPage{footnote} %the perpage package command
 
 \addto\captionsenglish{%
   \renewcommand{\figurename}{Figur}
 }
-
-\newtheorem*{mytheo}{Teorem}
-\newtheorem*{mydef}{Definisjon} % used later when creating definitions which are unnumbered
-
 
 \makeatletter
 \def\@documentnocite#1{\@bsphack
@@ -66,11 +38,6 @@
   \@esphack}
 \AtBeginDocument{\let\nocite\@documentnocite}
 \makeatother
-
-% change proof environment by having proof written as Example in bold
-\newenvironment{example}[1][\proofname]{%
-  \proof[\normalfont \textbf{Example}]%
-}{\endproof}
 
 \begin{document}
 \pagenumbering{roman} 
